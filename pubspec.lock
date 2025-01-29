@@ -154,7 +154,7 @@ packages:
       sha256: c01334d8f8b0d8c520d4b2b6cc73a184212b72df472ec951794cd40d6e996b5f
       url: "https://pub.dev"
     source: hosted
-    version: "0.9.33"
+    version: "0.9.27"
   frontend_server_client:
     dependency: transitive
     description:
