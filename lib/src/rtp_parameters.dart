@@ -50,7 +50,8 @@ class RtpCapabilities {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'codecs': codecs.map((RtpCodecCapability codec) => codec.toMap()).toList()
+      'codecs': codecs.map((RtpCodecCapability codec) => codec.toMap()).toList(),
+      'headerExtensions': headerExtensions.map((RtpHeaderExtension headerExtension) => headerExtension.toMap()).toList()
     };
   }
 }
@@ -314,6 +315,28 @@ class RtpHeaderExtension {
         preferredId = data['preferredId'],
         preferredEncrypt = data['preferredEncrypt'],
         direction = RtpHeaderDirectionExtension.fromString(data['direction']);
+
+  Map<String, dynamic> toMap() {
+    final Map<String, dynamic> map = {};
+
+    if (kind != null) {
+      map['kind'] = RTCRtpMediaTypeExtension.value(kind!);
+    }
+    if (uri != null) {
+      map['uri'] = uri!;
+    }
+    if (preferredId != null) {
+      map['preferredId'] = preferredId!;
+    }
+    if (preferredEncrypt != null) {
+      map['preferredEncrypt'] = preferredEncrypt!;
+    }
+    if (direction != null) {
+      map['direction'] = direction!.value;
+    }
+
+    return map;
+  }
 }
 
 class RtxSsrc {
